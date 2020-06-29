@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五曜赐福</title>
+</head>
+<style type="text/css">@import url("Demo.css");</style>
+<body>
+<!--<span>概率公示-->
+<!--星曜类型随机概率-->
+<!--金曜&#45;&#45;&#45;&#45;20%-->
+<!--木曜&#45;&#45;&#45;&#45;20%-->
+<!--水曜&#45;&#45;&#45;&#45;20%-->
+<!--火曜&#45;&#45;&#45;&#45;20%-->
+<!--土曜&#45;&#45;&#45;&#45;20%-->
+<!--星曜等级随机概率-->
+<!--1星&#45;&#45;&#45;&#45;82%-->
+<!--2星&#45;&#45;&#45;&#45;17%-->
+<!--3星&#45;&#45;&#45;&#45;1%-->
+<!--追加失败星曜等级降低概率-->
+<!--降低1星&#45;&#45;&#45;&#45;75%-->
+<!--降低2星&#45;&#45;&#45;&#45;25%</span>-->
+<a href="https://gp.qq.com/cp/a20200124wuxing/wuxing.html" target="_blank">玩法介绍</a>
+<h1 align="center">五曜赐福</h1>
+<form action="" name="">
+    <table border="" align="center">
+        <tr>
+            <td colspan="2"><input type="text" name="realtime" class="txt" readonly style="width: 300px;"></td>
+            <td>余额:<input type="text" name="balance" class="txt" readonly></td>
+            <td><input type="button" name="cz" value="充值" onclick="pay()" class="butt"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" name="cj" value="抽奖(6)" onclick="f()" class="butt" style="display: inline;">
+                <input type="button" name="ptzj" value="普通追加" onclick="f1()" class="butt" style="display: none;">
+            </td>
+            <td><input type="button" name="bhzj" value="保护追加" onclick="f2()" class="butt" style="display: none"></td>
+            <td colspan="2"><input type="button"name="qkjl" value="清空记录" onclick="clearrecord()"class="butt"></td>
+
+        </tr>
+        <tr>
+            <td>
+                <label for="pr1"><p id="sp">NULL</p></label>
+                <input type="radio" name="pr" class="rad" value="奖品1"id="pr1">
+            </td>
+            <td>
+                <label for="pr2"><p id="jp" >NULL</p></label>
+                <input type="radio" name="pr" class="rad" value="奖品2" id="pr2">
+            </td>
+            <td colspan="2" rowspan="5"><textarea id="record" cols="50" rows="20" readonly>记录：</textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" name="lqjl" value="领取奖励" onclick="f3()" class="butt" style="display: none;"></td>
+        </tr>
+        <tr>
+            <td colspan="2">五曜令牌：<input type="text" name="mydebris" class="txt" readonly></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><textarea id="mine" cols="30" rows="10" readonly>我的：</textarea></td>
+            <td>玛莎拉蒂兑换徽章：<br><input type="text" name="badge" class="txt" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="button" name="spsd" value="打开碎片商店" onclick="f4()" class="butt"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <span id="exchange" style="display: none;">
+                    <h4>碎片兑换处</h4>
+                    <input type="button" name="dh" value="兑换" onclick="f5()" class="butt">
+                    <!--                    金-->
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="套装-金曜白虎972" id="a1">
+                            <label for="a1"><img src="imgs/jin%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="背包挂件-金曜白虎108" id="a2">
+                            <label for="a2"><img src="imgs/jin%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="金曜白虎头盔324" id="a3">
+                            <label for="a3"><img src="imgs/jin%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="金曜白虎背包324" id="a4">
+                            <label for="a4"><img src="imgs/jin%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <!--                    木-->
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="套装-木曜青龙972" id="b1">
+                            <label for="b1"><img src="imgs/mu%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="背包挂件-木曜青龙108" id="b2">
+                            <label for="b2"><img src="imgs/mu%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="木曜青龙头盔324" id="b3">
+                            <label for="b3"><img src="imgs/mu%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="木曜青龙背包324" id="b4">
+                            <label for="b4"><img src="imgs/mu%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <!--                    水-->
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="套装-水曜玄武972" id="c1">
+                            <label for="c1"><img src="imgs/shui%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="背包挂件-水曜玄武108" id="c2">
+                            <label for="c2"><img src="imgs/shui%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="水曜玄武头盔324" id="c3">
+                            <label for="c3"><img src="imgs/shui%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="水曜玄武背包324" id="c4">
+                            <label for="c4"><img src="imgs/shui%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <!--                    火-->
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="套装-火曜朱雀972" id="d1">
+                            <label for="d1"><img src="imgs/huo%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="背包挂件-火曜朱雀108" id="d2">
+                            <label for="d2"><img src="imgs/huo%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="火曜朱雀头盔324" id="d3">
+                            <label for="d3"><img src="imgs/huo%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="火曜朱雀背包324" id="d4">
+                            <label for="d4"><img src="imgs/huo%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <!--                    土-->
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="套装-土曜战麒972" id="e1">
+                            <label for="e1"><img src="imgs/tu%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="背包挂件-土曜战麒108" id="e2">
+                            <label for="e2"><img src="imgs/tu%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="土曜战麒头盔324" id="e3">
+                            <label for="e3"><img src="imgs/tu%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="土曜战麒背包324" id="e4">
+                            <label for="e4"><img src="imgs/tu%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="至尊龙雀飞行服972" id="g1">
+                            <label for="g1"><img src="imgs/wu%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="M416-五爪金龙972" id="g2">
+                            <label for="g2"><img src="imgs/wu%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="至尊龙雀降落伞108" id="g3">
+                            <label for="g3"><img src="imgs/wu%20(3).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="平底锅-五爪金龙108" id="g4">
+                            <label for="g4"><img src="imgs/wu%20(4).png" alt=""></label>
+                        </li>
+                    </ul>
+                    <ul id="distrib">
+                        <li>
+                            <input type="radio" name="changer" value="玛莎拉蒂兑换徽章×12916" id="h1">
+                            <label for="h1"><img src="imgs/mssp.png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="玛莎拉蒂Ghibli(蓝)1" id="h2">
+                            <label for="h2"><img src="imgs/car%20(1).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="玛莎拉蒂Ghibli(粉)1" id="h3">
+                            <label for="h3"><img src="imgs/car%20(2).png" alt=""></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="changer" value="玛莎拉蒂Ghibli(金)3" id="h4">
+                            <label for="h4"><img src="imgs/car%20(3).png" alt=""></label>
+                        </li>
+                    </ul>
+
+                </span>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+<script type="text/javascript" src="Demo.js"></script>
+</html>
